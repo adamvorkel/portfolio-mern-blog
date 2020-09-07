@@ -7,6 +7,7 @@ import {
 
 import './App.css';
 import Nav from './Nav';
+import Footer from './Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ArticlesListPage from './pages/ArticlesListPage';
@@ -19,13 +20,16 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-        <Switch>
-          <Route path="/" component={HomePage} exact />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/articles-list" component={ArticlesListPage} />
-          <Route path="/article/:name" component={ArticlePage} />
-          <Route component={NotFoundPage} />
-        </Switch>
+        <div className="App-body">
+          <Switch>
+            <Route path="/" component={HomePage} exact />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/articles-list" component={ArticlesListPage} />
+            <Route path="/article/:name" component={ArticlePage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </div>
+        <Footer />
       </div>
     </Router>
   );

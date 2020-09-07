@@ -9,12 +9,12 @@ const ArticlePage = ({ match }) => {
     if(!article) return <NotFoundPage />
 
     return (
-        <>
+        <div className="container">
             <h1>{article.title}</h1>
             {article.content.map((paragraph, key) => (
                 <p key={key}>{paragraph}</p>
             ))}
-        </>
+        </div>
     )
 }
 
