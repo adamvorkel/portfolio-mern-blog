@@ -1,11 +1,12 @@
 import React from 'react';
 import dummyArticles from '../dummy-articles';
+import NotFoundPage from './NotFoundPage';
 
 const ArticlePage = ({ match }) => {
     const name = match.params.name;
     const article = dummyArticles.find(dummyArticle => dummyArticle.name === name);
 
-    if(!article) return <h1>Article does not exist</h1>
+    if(!article) return <NotFoundPage />
 
     return (
         <>
