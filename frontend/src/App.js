@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 
 import './App.css';
+import Nav from './Nav';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ArticlesList from './pages/ArticlesList';
@@ -14,10 +15,11 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Nav />
         <Route path="/" component={HomePage} exact />
         <Route path="/about" component={AboutPage} />
         <Route path="/articles-list" component={ArticlesList} />
-        <Route path="/article" component={ArticlePage} />
+        <Route path="/article/:name" component={ArticlePage} />
       </div>
     </Router>
   );
