@@ -1,12 +1,12 @@
 FROM node:12
 
-WORKDIR /app
+WORKDIR /api
 
-COPY package*.json /app/
+COPY package*.json /api/
 
 RUN npm install
 
-COPY . /app/
+COPY . /api/
 
 EXPOSE 8000
 

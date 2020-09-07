@@ -7,6 +7,9 @@ services:
         build: ./api
         ports:
             - "8000:8000"
+        volumes:
+            - './api:/api'
+            - '/api/node_modules'
         depends_on: 
             - mongo
     client: 
@@ -15,8 +18,14 @@ services:
         build: ./client
         ports: 
             - "3000:3000"
+        volumes:
+            - './client:/client'
+            - '/client/node_modules'
+        environment:
+            - CHOKIDAR_USEPOLLING=true
         links:
             - api
+        stdin_open: true
     mongo: 
         container_name: mongo
         image: mongo:4.1.8-xenial
@@ -24,6 +33,9 @@ services:
         expose:
             - "27017"
         volumes: 
-            - ./data:/data/db
+            - db-data:/data/db
         ports: 
             - "27017:27017"
+
+volumes: 
+    db-data:
