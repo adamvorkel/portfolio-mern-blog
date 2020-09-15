@@ -1,6 +1,8 @@
 import express from 'express';
 import dbConnect from './db';
 
+import Article from './models/Article';
+
 const db = dbConnect();
 
 const app = express();
